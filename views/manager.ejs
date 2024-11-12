@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="manager_style.css">
+    <title>Manager portal</title>
+</head>
+<body>
+    <header class="webHead">
+        <img id="logo" src="d2alogo1.png" >
+        <p>D2A BANK&#128178;</p>
+      </header>
+<div id="dropDown">
+  <select id="actionDropdown" class="js-summa">
+    <option value="">Select an Action</option>
+    <option value="getAllCustomers">Get All Customers</option>
+    <option  value="getOneCustomer">Get One Customer</option>
+    <option value="getCustomerAccount">Get Customer Account</option>
+    <option value="insertCustomer">Insert Customer Details</option>
+    <option value="deleteCustomer">Delete Customer</option>
+    <option value="getAccountType">Select Account Type</option>
+    <option value="StaffWhoAreCustomer">Get Staff Who Are Customer</option>
+    <option value="AccountCount">Get Account Count of a customer</option>
+    <option value="AllStaffs">Get All Staffs</option>
+    <option value="BranchStaffs">Get Staffs from particular branch</option>
+    <option value="OpenAccount">Open Account for a customer</option>
+</select><br>
+
+</div>
+     
+      
+    <p id="Headp"></p>
+    <p id="Head2p"></p>
+   
+  
+
+      <table border="1" id="customerTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>SEX</th>
+            <th>PAN</th>
+            <th>ADHAAR</th>
+            <th>Date of birth</th>
+            <th>Ifsce_Code</th>
+          </tr>
+        </thead>
+        <tbody id="customerTableBody"></tbody>
+      </table>
+
+      <input id="oneCusInput" placeholder="Enter Customer Id:">
+      <button id="oneCusBtn">Submit</button>
+    
+      <table border="1" id="OneCustomerTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>SEX</th>
+            <th>PAN</th>
+            <th>ADHAAR</th>
+            <th>Date of birth</th>
+            <th>Ifsce_Code</th>
+          </tr>
+        </thead>
+        <tbody id="OneCustomerTableBody"></tbody>
+      </table>
+
+      <input id="get_acc" placeholder="Enter Customer Id:">
+      <button id="acc">SUBMIT</button>
+      <table border="1" id="accTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>ACCCOUNT_ID</th>
+            <th>CUSTOMER_ID</th>
+            <th>BALANCE</th>
+            <th>ACCOUNT_TYPE</th>
+          </tr>
+        </thead>
+        <tbody id="accTableBody"></tbody>
+      </table>
+   
+
+  <form id="customerForm" class="styled-form">
+    <label>Cus ID: <input type="number" name="cus_id" required></label><br>
+    <label>First Name: <input type="text" name="fname" required></label><br>
+    <label>Last Name: <input type="text" name="lname" required></label><br>
+    <label>Date of Birth: <input type="text" name="dob" placeholder="yyyy-mm-dd" required></label><br>
+    <label>PAN: <input type="text" name="pan" required></label><br>
+    <label>Adhaar: <input type="text" name="adhaar" required></label><br>
+    <label>Sex: <input type="text" name="sex" required></label><br>
+    <label>Address: <input type="text" name="address" required></label><br>
+    <label>IFSC Code: <input type="text" name="ifsce" required></label><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="responseMessage"></p>
+
+  <form id="AccountForm" class ="styled-form">
+    <label>ACCOUNT NO: <input type="number" name="AccNo" placeholder="Enter from 1001" required>  </label><br>
+    <label>Cus ID: <input type="number" name="cus_id" placeholder="Enter from 01" required></label><br>
+    <label>BALANCE: <input type="number" name="balance" required> </label><br>
+    <label>ACCOUNT_TYPE_ID: <input type="number" name="AccType" placeholder="Enter from 411"> </label><br>
+    <label>IFSC Code: <input type="text" name="ifsce" required></label><br>
+    <button type="submit">Submit</button> 
+  </form>
+
+  <p id="responseMsg"></p>
+
+  <div id="DeleteCustomer">
+    <form action="/api/delete_cus" method="post">
+      <label>Delete: <input type="number" id="del_in" name="cus_id" placeholder="Enter customer id to delete" required></label><br>
+      <button id="del_btn" type="submit">Submit</button>
+  </form>
+  
+  <% if (typeof message !== 'undefined') { %>
+    <p><%= message %></p>
+  <% } %>
+
+  </div>
+ 
+  
+  
+  <input id="account" type="text" placeholder="Enter Account Type:">
+      <button id="acc_btn">SUBMIT</button>
+      <table border="1" id="acc_typeTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>ACCCOUNT_ID</th>
+            <th>CUSTOMER_ID</th>
+            <th>BALANCE</th>
+            <th>ACCOUNT_TYPE</th>
+          </tr>
+        </thead>
+        <tbody id="acc_typeTableBody"></tbody>
+      </table>
+
+      <table border="1" id="csTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Customer Id</th>
+            <th>Staff Id</th>
+          </tr>
+        </thead>
+        <tbody id="csTableBody"></tbody>
+      </table>
+    
+    <input id="countIN" type="number" placeholder="Enter customer Id">
+          <button id="countBtn">Submit</button>
+          <table border="1" id="CountTable" style="display: none;">
+            <thead>
+              <tr>
+                <th>Customer_ID</th>
+                <th>Account_Count</th>
+              </tr>
+            </thead>
+            <tbody id="CountTableBody"></tbody>
+          </table>
+
+
+          <table border="1" id="All_staffTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Staff ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>SEX</th>
+                    <th>PAN</th>
+                    <th>ADHAAR</th>
+                    <th>Address</th>
+                    <th>Salary</th>
+                    <th>Date of birth</th>
+                    <th>Designation</th>
+                    <th>Ifsce_Code</th>
+                </tr>
+            </thead>
+            <tbody id="all_staffTablebody"></tbody>
+          </table>
+
+          <input id="branch_staffIN" type="text" placeholder="Enter like D2AN0018">
+          <button id="branch_staffBtn">Submit</button>
+
+          <table border="1" id="branch_staffTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Staff ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>SEX</th>
+                    <th>PAN</th>
+                    <th>ADHAAR</th>
+                    <th>Address</th>
+                    <th>Date of birth</th>
+                    <th>Designation</th>
+                    <th>Ifsce_Code</th>
+                </tr>
+            </thead>
+            <tbody id="branch_staffTbody"></tbody>
+          </table>
+         
+          <p id="afterp"></p>
+          <p id="lp"></p>
+          <p id="op"></p>
+          <p id="cp"></p>
+
+      <link href="vendor/select2/dist/css/select2.min.css" rel="stylesheet" />
+      <script src="vendor/select2/dist/js/select2.min.js"></script>
+<script src="manager_content.js"></script>
+
+</body>
+</html>

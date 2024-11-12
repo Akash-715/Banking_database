@@ -1,0 +1,109 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farro:wght@300;400;500;700&family=Onest:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*header work */
+.webHead{
+    margin: 1%;
+    padding: 1%;
+    background-color:black;
+    color: aliceblue;
+    font-family: "poppins", sans-serif;
+    font-weight:800;
+    font-size: 23px;
+}
+
+#logo{
+    float:left;
+    display: block;
+    height: 2cm;
+    width: 4.5cm;
+
+}
+
+.webHead p{
+    display: flex;
+    justify-content: end;
+}
+
+/* STAFF AND MANAGER PORTAL WORK*/
+
+#manage{
+    background-color: black;
+    height: 1.5cm;  
+}
+
+#mp{
+    background-color: #555555; /* Dark gray */
+    color: white;
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    font-family: "poppins", sans-serif;
+    font-weight:400;
+    position: relative;
+    right:-1290px;
+    margin-top: 7px;
+}
+
+#sp{
+    background-color: #555555; /* Medium gray */
+    color: white;
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    font-family: "poppins", sans-serif;
+    font-weight:500;
+    position: relative;
+    right:-1300px;
+}
+#sp a{
+     text-decoration: none;
+     color: white;
+}
+
+#mp a{
+    text-decoration: none;
+     color: white;
+}
+#sp:hover{
+    background-color: rgb(122, 114, 114);
+    color: white;
+}
+
+#mp:hover{
+    background-color: rgb(122, 114, 114);
+    color: white;
+}
+
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: auto;
+}
+
+img{
+    width: 100px;
+}
+
+#btn{
+    background-color: rgb(221, 179, 255);
+    color: rgb(1, 1, 1);
+    font-family: Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;  
+      
+}
+
+#btn:hover{
+    background-color: rgb(232, 223, 235);
+}
+
+#csb{
+    background-color: #9bdeab;
+    color: rgb(61, 61, 61);
+    font-family:  Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;  
+    display: flex;
+    column-gap: 2cm;
+    flex-direction:row;
+}
+
+#csb:hover {
+    background-color : #7cd28e ;
+}
